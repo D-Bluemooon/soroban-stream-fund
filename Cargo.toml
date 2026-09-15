@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "A minimal per-second token streaming contract for Soroban"
-repository = "https://github.com/YOUR_ORG/soroban-stream-fund"
+repository = "https://github.com/D-Bluemooon/soroban-stream-fund"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
