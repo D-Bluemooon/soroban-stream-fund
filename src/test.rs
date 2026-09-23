@@ -1,7 +1,7 @@
 #![cfg(test)]
 
 use super::*;
-use soroban_sdk::{testutils::Address as _, token, Env};
+use soroban_sdk::{testutils::{Address as _, Ledger}, token, Env}; 
 
 fn create_token<'a>(env: &Env, admin: &Address) -> (Address, token::StellarAssetClient<'a>, token::Client<'a>) {
     let contract_address = env.register_stellar_asset_contract_v2(admin.clone()).address();
@@ -22,7 +22,7 @@ fn create_and_withdraw() {
     let (token_address, token_admin, _token_client) = create_token(&env, &admin);
     token_admin.mint(&sender, &10_000);
 
-    let contract_id = env.register(StreamFundContract, ());
+    let contract_id = env.register_contract(None, StreamFundContract);
     let client = StreamFundContractClient::new(&env, &contract_id);
 
     let id = client.create_stream(&sender, &recipient, &token_address, &1_000, &10);
@@ -48,7 +48,7 @@ fn withdraw_caps_at_remaining_balance() {
     let (token_address, token_admin, _token_client) = create_token(&env, &admin);
     token_admin.mint(&sender, &10_000);
 
-    let contract_id = env.register(StreamFundContract, ());
+    let contract_id = env.register_contract(None, StreamFundContract);
     let client = StreamFundContractClient::new(&env, &contract_id);
 
     let id = client.create_stream(&sender, &recipient, &token_address, &100, &10);
