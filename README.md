@@ -41,6 +41,8 @@ cargo build --target wasm32-unknown-unknown --release
 cargo test
 ```
 
+**Deployed on testnet:** `CAYUPHNACFRAS3ZRY3IJWXPO2QTYIAUVEK7O7XNEUGAVRM3HM5JWXN6Q` — [view on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CAYUPHNACFRAS3ZRY3IJWXPO2QTYIAUVEK7O7XNEUGAVRM3HM5JWXN6Q)
+
 Requires the `wasm32-unknown-unknown` target and the [Soroban CLI](https://soroban.stellar.org/docs)
 if you want to deploy to a local network or testnet.
 
